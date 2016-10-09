@@ -1,0 +1,13 @@
+c:\users\user\documents\visual studio 2015\Projects\ApplicationDB\ApplicationDB\bin\Debug\ApplicationDB.exe.config
+c:\users\user\documents\visual studio 2015\Projects\ApplicationDB\ApplicationDB\bin\Debug\ApplicationDB.exe
+c:\users\user\documents\visual studio 2015\Projects\ApplicationDB\ApplicationDB\bin\Debug\ApplicationDB.pdb
+c:\users\user\documents\visual studio 2015\Projects\ApplicationDB\ApplicationDB\bin\Debug\EntityFramework.dll
+c:\users\user\documents\visual studio 2015\Projects\ApplicationDB\ApplicationDB\bin\Debug\GenericDbContext.dll
+c:\users\user\documents\visual studio 2015\Projects\ApplicationDB\ApplicationDB\bin\Debug\EntityFramework.xml
+c:\users\user\documents\visual studio 2015\Projects\ApplicationDB\ApplicationDB\bin\Debug\ru\EntityFramework.resources.dll
+c:\users\user\documents\visual studio 2015\Projects\ApplicationDB\ApplicationDB\obj\Debug\ApplicationDB.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2015\Projects\ApplicationDB\ApplicationDB\obj\Debug\ApplicationDB.mainForm.resources
+c:\users\user\documents\visual studio 2015\Projects\ApplicationDB\ApplicationDB\obj\Debug\ApplicationDB.Properties.Resources.resources
+c:\users\user\documents\visual studio 2015\Projects\ApplicationDB\ApplicationDB\obj\Debug\ApplicationDB.csproj.GenerateResource.Cache
+c:\users\user\documents\visual studio 2015\Projects\ApplicationDB\ApplicationDB\obj\Debug\ApplicationDB.exe
+c:\users\user\documents\visual studio 2015\Projects\ApplicationDB\ApplicationDB\obj\Debug\ApplicationDB.pdb

@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PizzaDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PizzaDBModelStoreContainer">
+    <EntitySet Name="Deliverys" EntityType="PizzaDBModel.Store.Deliverys" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Orders" EntityType="PizzaDBModel.Store.Orders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrdersStatus" EntityType="PizzaDBModel.Store.OrdersStatus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pizzas" EntityType="PizzaDBModel.Store.Pizzas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="PizzaDBModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sizes" EntityType="PizzaDBModel.Store.Sizes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="PizzaDBModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Orders_ToDeliverys" Association="PizzaDBModel.Store.FK_Orders_ToDeliverys">
+      <End Role="Deliverys" EntitySet="Deliverys" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ToOrdersStatus" Association="PizzaDBModel.Store.FK_Orders_ToOrdersStatus">
+      <End Role="OrdersStatus" EntitySet="OrdersStatus" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ToPizzas" Association="PizzaDBModel.Store.FK_Orders_ToPizzas">
+      <End Role="Pizzas" EntitySet="Pizzas" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_ToUsers" Association="PizzaDBModel.Store.FK_Orders_ToUsers">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pizzas_ToSize" Association="PizzaDBModel.Store.FK_Pizzas_ToSize">
+      <End Role="Sizes" EntitySet="Sizes" />
+      <End Role="Pizzas" EntitySet="Pizzas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_ToRoles" Association="PizzaDBModel.Store.FK_Users_ToRoles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Deliverys">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="User" Type="int" Nullable="false" />
+    <Property Name="State" Type="int" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Pizza" Type="int" Nullable="false" StoreGeneratedPattern="None" />
+    <Property Name="Cost" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="TypeDelivery" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrdersStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Pizzas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Size" Type="int" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="Price" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Describe" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="Sizes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Diameter" Type="int" Nullable="false" />
+    <Property Name="Coefficient" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Surname" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Number" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Role" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Orders_ToDeliverys">
+    <End Role="Deliverys" Type="PizzaDBModel.Store.Deliverys" Multiplicity="1" />
+    <End Role="Orders" Type="PizzaDBModel.Store.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deliverys">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="TypeDelivery" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ToOrdersStatus">
+    <End Role="OrdersStatus" Type="PizzaDBModel.Store.OrdersStatus" Multiplicity="1" />
+    <End Role="Orders" Type="PizzaDBModel.Store.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrdersStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="State" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ToPizzas">
+    <End Role="Pizzas" Type="PizzaDBModel.Store.Pizzas" Multiplicity="1" />
+    <End Role="Orders" Type="PizzaDBModel.Store.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pizzas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Pizza" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_ToUsers">
+    <End Role="Users" Type="PizzaDBModel.Store.Users" Multiplicity="1" />
+    <End Role="Orders" Type="PizzaDBModel.Store.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pizzas_ToSize">
+    <End Role="Sizes" Type="PizzaDBModel.Store.Sizes" Multiplicity="1" />
+    <End Role="Pizzas" Type="PizzaDBModel.Store.Pizzas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sizes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pizzas">
+        <PropertyRef Name="Size" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_ToRoles">
+    <End Role="Roles" Type="PizzaDBModel.Store.Roles" Multiplicity="1" />
+    <End Role="Users" Type="PizzaDBModel.Store.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
